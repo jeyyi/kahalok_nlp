@@ -23,7 +23,7 @@ export default function Navbar({ fixed }) {
             </button>
           </div>
           <div className="flex justify-end">
-          <p
+            <p
               className="text-xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
               href="/"
             >
@@ -36,7 +36,6 @@ export default function Navbar({ fixed }) {
               href="/"
             />
           </div>
-          
         </div>
       </nav>
     </>

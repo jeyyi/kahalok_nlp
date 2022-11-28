@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const Modal = () => {
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   return (
     <>
@@ -30,13 +32,25 @@ const Modal = () => {
                   </button>
                 </div>
                 <div className="p-8 items-center w-full space-y-3">
-                    <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">Bigram Analysis</button>
-                    <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">Clustering</button>
-                    <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">Most Frequent Word</button>
-                    <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">N-gram</button>
-                    <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">Sentiment Analysis</button>
-                    <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">Thematic Analysis</button>
-
+                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500"
+                  onClick = {()=> navigate('bigram')}>
+                    Bigram Analysis
+                  </button>
+                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">
+                    Clustering
+                  </button>
+                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">
+                    Most Frequent Word
+                  </button>
+                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">
+                    N-gram
+                  </button>
+                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">
+                    Sentiment Analysis
+                  </button>
+                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">
+                    Thematic Analysis
+                  </button>
                 </div>
                 <div className="flex items-center justify-end p-2 border-solid border-blueGray-200 rounded-b w-3/4"></div>
               </div>
