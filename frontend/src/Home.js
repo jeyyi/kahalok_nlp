@@ -13,7 +13,6 @@ const Home = () => {
     <div className="bg-gray-100">
       <Header />
       {/* Start of div before */}
-      
       <div className="px-32">
         <div className="flex flex-items-stretch bg-light-grey justify-between py-4">
           <p className="text-2xl text-blue-900 font-bold">

@@ -33,7 +33,7 @@ const Modal = () => {
                 </div>
                 <div className="p-8 items-center w-full space-y-3">
                   <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500"
-                  onClick = {()=> navigate('bigram')}>
+                  onClick = {()=> navigate('../bigram', { replace: false })}>
                     Bigram Analysis
                   </button>
                   <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">

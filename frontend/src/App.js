@@ -5,6 +5,7 @@ import WBtn from "./components/WBtn";
 import Modal from "./components/Modal";
 import Home from "./Home";
 import Bigram from "./Bigram";
+import Neck from "./components/Neck";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 <script
   src="https://kit.fontawesome.com/a076d05399.js"
