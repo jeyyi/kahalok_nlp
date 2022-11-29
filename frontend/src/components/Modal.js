@@ -19,7 +19,7 @@ const Modal = () => {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-auto bg-[#36408d] outline-none focus:outline-none">
                 <div className="flex items-start justify-between pt-8 pb-0 pl-8 pr-8 rounded-t ">
                   <div className="space-y-1.5">
-                    <h3 className="text-2xl font=semibold text-white">
+                    <h3 className="text-2xl font-bold text-white">
                       Choose Feature
                     </h3>
                     <p className="text-white">Sample Description</p>
