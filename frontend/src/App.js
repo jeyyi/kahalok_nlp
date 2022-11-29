@@ -1,11 +1,10 @@
 import React from "react";
-import Card from "./components/Card";
-import Header from "./components/Header";
-import WBtn from "./components/WBtn";
-import Modal from "./components/Modal";
 import Home from "./Home";
 import Bigram from "./Bigram";
-import Neck from "./components/Neck";
+import Clustering from "./Clustering";
+import Frequent from "./Frequent";
+import Sentiment from "./Sentiment";
+import Thematic from "./Thematic";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 <script
   src="https://kit.fontawesome.com/a076d05399.js"
@@ -18,6 +17,10 @@ function App() {
       <Routes>
           <Route index element={<Home/>} />
           <Route path="bigram" element={<Bigram/>} />
+          <Route path="clustering" element={<Clustering/>} />
+          <Route path="frequent" element={<Frequent/>} />
+          <Route path="sentiment" element={<Sentiment/>} />
+          <Route path="thematic" element={<Thematic/>} />
       </Routes>
     </BrowserRouter>
   );

@@ -36,19 +36,20 @@ const Modal = () => {
                   onClick = {()=> navigate('../bigram', { replace: false })}>
                     Bigram Analysis
                   </button>
-                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">
+                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500"
+                  onClick={()=> navigate('../clustering', {replace : false})}>
                     Clustering
                   </button>
-                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">
+                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500"
+                  onClick = {()=> navigate('../frequent', { replace: false })}>
                     Most Frequent Word
                   </button>
-                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">
-                    N-gram
-                  </button>
-                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">
+                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500"
+                  onClick = {()=> navigate('../sentiment', { replace: false })}>
                     Sentiment Analysis
                   </button>
-                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500">
+                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500"
+                  onClick = {()=> navigate('../thematic', { replace: false })}>
                     Thematic Analysis
                   </button>
                 </div>
