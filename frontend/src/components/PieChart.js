@@ -1,6 +1,6 @@
 // src/components/PieChart.js
 import React from "react";
-import { Doughnut } from "react-chartjs-2";
+import { Doughnut, Bar } from "react-chartjs-2";
 
 function PieChart({ chartData }) {
   return (
