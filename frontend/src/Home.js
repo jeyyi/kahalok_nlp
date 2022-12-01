@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./components/Card";
 import Header from "./components/Header";
 import WBtn from "./components/WBtn";
-import Modal from './components/Modal'
+import Modal from "./components/Modal";
 <script
   src="https://kit.fontawesome.com/a076d05399.js"
   crossorigin="anonymous"
@@ -25,7 +25,7 @@ const Home = () => {
         <div className="flex flex-items-stretch bg-light-grey justify-between py-4">
           <div className="flex justify-start space-x-6">
             <p className="text-xl font-bold">English Analytics</p>
-            <Modal/>
+            <Modal />
           </div>
           <div className="flex justify-end space-x-2">
             <WBtn
@@ -59,38 +59,48 @@ const Home = () => {
           </div>
         </div>
         {/* Start of cards*/}
-        <div className="flex justify-between space-x-4 mt-4">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+        <div className="flex justify-between space-x-4 mt-4 w-full">
+          <div className="w-1/5">
+            <Card title={"Total Respondents"} subtitle={"5000"} />
+          </div>
+          <div className="w-1/5">
+            <Card title={"Bicolano Respondents"} subtitle={"1250"} />
+          </div>
+          <div className="w-1/5">
+            <Card title={"English Respondents"} subtitle={"1000"} />
+          </div>
+          <div className="w-1/5">
+            <Card title={"Ilokano Respondents"} subtitle={"1190"} />
+          </div>
+          <div className="w-1/5">
+            <Card title={"Tagalog Respondents"} subtitle={"1560"} />
+          </div>
         </div>
         <div className="flex justify-between space-x-4 mt-4">
           <div className="w-3/4">
-            <Card />
+            <Card title={"Population Geolocation"} />
           </div>
           <div className="w-1/4">
-            <Card />
+            <Card title={"Gender"} isPie ={true}/>
           </div>
         </div>
         <div className="flex justify-between space-x-4 mt-4 mb-4">
           <div className="flex justify-between w-3/4 space-x-4">
-          <div className="w-1/2">
-            <Card />
-          </div>
-          <div className="w-1/2">
-            <Card />
-          </div>
+            <div className="w-1/2">
+              <Card title={"Statistics"} isBar = {true}/>
+            </div>
+            <div className="w-1/2">
+              <Card title={"Age"} isBar={true}/>
+            </div>
           </div>
           <div className="w-1/4">
-            <Card />
+            <Card title={"Residence"} isPie= {true} />
           </div>
-        </div> 
+        </div>
         {/* End of div flex */}
       </div>
     </div>
   );
-}
+};
 
 export default Home;

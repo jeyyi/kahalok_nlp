@@ -8,13 +8,14 @@ function PieChart({ chartData }) {
       <Doughnut
         data={chartData}
         options={{
+          maintainAspectRatio: false,
           plugins: {
             title: {
               display: false,
               text: "Sample Pie Chart"
             },
             legend: {
-                display: true,
+                display: false,
                 labels : {
                     usePointStyle: false,
                 }
