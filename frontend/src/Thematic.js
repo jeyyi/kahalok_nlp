@@ -4,9 +4,12 @@ import Neck from "./components/Neck";
 import TableRow from "./components/TableRow";
 
 const Thematic = () => {
+  const topics = ['Substance abuse among teenagers in Himamaylan City', 'Lack of access to education and job opportunities for teenagers in Himamaylan City',
+'Teen pregnancy and parenting in Himamaylan City', 'Bullying and cyberbullying among teenagers in Himamaylan City','Mental health issues among teenagers in Himamaylan City',
+'Gang activity and involvement among teenagers in Himamaylan City']
   const tblRows = [];
   for (let i = 1 ; i < 7 ; i++){
-    tblRows.push(<TableRow id = {i.toString()} text = {"Sample Topic"}/>)
+    tblRows.push(<TableRow id = {i.toString()} text = {topics.at(i-1)}/>)
   }
   return (
     <div className="bg-gray-200">

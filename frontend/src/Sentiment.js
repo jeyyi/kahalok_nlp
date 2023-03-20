@@ -9,8 +9,9 @@ const Sentiment = () => {
     labels: Data.map((data) => data.year),
     datasets: [
       {
-        label: "Statemens ",
+        label: "Statements ",
         data: Data.map((data) => data.userGain),
+        backgroundColor: ["#166534", "#ef4444", "#2196F3"]
       },
     ],
   });

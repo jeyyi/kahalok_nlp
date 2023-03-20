@@ -2,19 +2,19 @@ export const Data = [
     {
       id: 1,
       year: "Positive",
-      userGain: 80000,
+      userGain: 730,
       userLost: 823
     },
     {
       id: 2,
       year: "Negative",
-      userGain: 45677,
+      userGain: 180,
       userLost: 345
     },
     {
       id: 3,
       year: "Neutral",
-      userGain: 78888,
+      userGain: 65,
       userLost: 555
     },
   ];

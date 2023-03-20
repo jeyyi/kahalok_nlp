@@ -5,6 +5,7 @@ import Clustering from "./Clustering";
 import Frequent from "./Frequent";
 import Sentiment from "./Sentiment";
 import Thematic from "./Thematic";
+import Testing from "./Testing";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 <script
   src="https://kit.fontawesome.com/a076d05399.js"
@@ -21,6 +22,7 @@ function App() {
           <Route path="frequent" element={<Frequent/>} />
           <Route path="sentiment" element={<Sentiment/>} />
           <Route path="thematic" element={<Thematic/>} />
+          <Route path="testing" element={<Testing/>} />
       </Routes>
     </BrowserRouter>
   );

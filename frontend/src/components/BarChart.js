@@ -3,6 +3,7 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 
 function BarChart({ chartData }) {
+
   return (
     <div className="chart-container min-h-full min-w-full">
       <Bar

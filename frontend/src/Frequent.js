@@ -8,15 +8,16 @@ import TableRow from "./components/TableRow";
 
 
 const Frequent = () => {
+  const words= ['mayor','thank','soon','handog','booster','salamat','vice','bless','schedule','maraming']
   const tblRows = []
   for (let i=0; i< 8; i++){
-    tblRows.push(<TableRow id={i.toString()} text="Sample Text"/>)
+    tblRows.push(<TableRow id={i.toString()} text={words.at(i)}/>)
   }
   const [chartData, setChartData] = useState({
     labels: Data2.map((data) => data.year),
     datasets: [
       {
-        label: "Sample Data",
+        label: "No. of words",
         data: Data2.map((data) => data.userGain),
         backgroundColor: "orange",
       },
