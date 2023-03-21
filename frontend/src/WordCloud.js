@@ -44,7 +44,7 @@ const WordCloud = () => {
   return (
     <div className="bg-gray-200">
       <Header></Header>
-      <Neck tempTitle={"Bigram Analysis"}></Neck>
+      <Neck tempTitle={"Wordcloud"}></Neck>
       <div className="px-32 h-screen">
         <div className="flex flex-row h-2/3 bg-white rounded-b-xl p-2">
           <div className="flex row w-4/5 h-full bg-white">
