@@ -1,28 +1,40 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import Header from "./components/Header";
 import Neck from "./components/Neck";
 import BarChart from "./components/BarChart";
-import {Data2} from './utils/Data2';
-import { useState } from "react";
 import TableRow from "./components/TableRow";
-
+import axios from "axios";
 
 const Frequent = () => {
-  const words= ['mayor','thank','soon','handog','booster','salamat','vice','bless','schedule','maraming']
-  const tblRows = []
-  for (let i=0; i< 8; i++){
-    tblRows.push(<TableRow id={i.toString()} text={words.at(i)}/>)
-  }
-  const [chartData, setChartData] = useState({
-    labels: Data2.map((data) => data.year),
-    datasets: [
-      {
-        label: "No. of words",
-        data: Data2.map((data) => data.userGain),
-        backgroundColor: "orange",
-      },
-    ],
-  });
+  const [data, setData] = useState([]);
+  const [chartData, setChartData] = useState({});
+  const tblRows = [];
+
+  useEffect(() => {
+    axios.get("http://localhost:8000/frequent").then((result) => {
+      setData(result.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const mappedData = data.map((tempdata) => ({
+        word: tempdata.word,
+        number: tempdata.number,
+      }));
+
+      setChartData({
+        labels: mappedData.map((tempdata) => tempdata.word),
+        datasets: [
+          {
+            label: "No. of words",
+            data: mappedData.map((tempdata) => tempdata.number),
+            backgroundColor: "orange",
+          },
+        ],
+      });
+    }
+  }, [data]);
   return (
     <div className="bg-gray-200">
       <Header></Header>
@@ -30,11 +42,26 @@ const Frequent = () => {
       <div className="px-32 h-screen">
         <div className="flex flex-row h-2/3 bg-white rounded-b-xl p-6">
           <div className="flex flex-row items-center justify-center h-full w-full">
-            <BarChart chartData={chartData}/>
+            {Object.keys(chartData).length > 0 && (
+              <BarChart chartData={chartData} />
+            )}
           </div>
           <div className="flex flex-col space-y-4 h-full w-full items-center justify-center ml-6">
+            <div className="hidden">
+              {data
+                .slice(0,8)
+                .map((tempdata, i) =>
+                  tblRows.push(
+                    <TableRow
+                      key={i}
+                      id={(i + 1).toString()}
+                      text={tempdata.word}
+                    />
+                  )
+                )}
+            </div>
             {tblRows}
-        </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,25 +1,61 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import Header from "./components/Header";
 import Neck from "./components/Neck";
 import TableRow from "./components/TableRow";
+import axios from "axios";
 
 const Thematic = () => {
-  const topics = ['Substance abuse among teenagers in Himamaylan City', 'Lack of access to education and job opportunities for teenagers in Himamaylan City',
-'Teen pregnancy and parenting in Himamaylan City', 'Bullying and cyberbullying among teenagers in Himamaylan City','Mental health issues among teenagers in Himamaylan City',
-'Gang activity and involvement among teenagers in Himamaylan City']
-  const tblRows = [];
-  for (let i = 1 ; i < 7 ; i++){
-    tblRows.push(<TableRow id = {i.toString()} text = {topics.at(i-1)}/>)
-  }
+  const [data, setData] = useState([]);
+  const [tblRows, setTblRows] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(()=>{
+    setIsLoading(true)
+    axios.get("http://localhost:8000/thematic-analysis")
+      .then(response=>{
+        setData(response.data)
+        console.log("Successful connecting data")
+        console.log(data)
+      })
+      .catch(err=>{
+        console.error(err)
+      })
+      .finally(()=> setTimeout(() => setIsLoading(false), 1000)); // add delay of 1 second
+  },[]);
+  
+
+  useEffect(() => {
+    try {
+      const rows = data.map((tempdata, i) => (
+        <TableRow id={i + 1} key={i} text={tempdata.topic_words} />
+      ));
+      setTblRows(rows);
+    } catch (err) {
+      console.error(err);
+    }
+  }, [data]);
+
   return (
     <div className="bg-gray-200">
-      <Header></Header>
-      <Neck tempTitle={"Thematic Analysis"}></Neck>
+      <Header />
+      <Neck tempTitle={"Thematic Analysis"} />
       <div className="px-32 h-screen">
         <div className="flex flex-row h-2/3 bg-white rounded-b-xl p-6 space-x-4">
           <div className="flex flex-col w-4/5 space-y-4">
-            <p className="font-bold text-2xl">Top 6 Topics</p>
-            {tblRows}
+            <p className="font-bold text-2xl">Top Topics</p>
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : (
+              <>
+                {tblRows.length === 0 ? (
+                  <p>No data found.</p>
+                ) : (
+                  <>
+                    {tblRows}
+                  </>
+                )}
+              </>
+            )}
           </div>
           <div className="flex flex-col h-full w-1/5 bg-gray-200">
             <div className="items-center h-1/6">
