@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Neck from "./components/Neck";
 import TableRow from "./components/TableRow";
 import axios from "axios";
+import LoadingBar from "./components/LodingBar";
 
 const Thematic = () => {
   const [data, setData] = useState([]);
@@ -44,7 +45,10 @@ const Thematic = () => {
           <div className="flex flex-col w-4/5 space-y-4">
             <p className="font-bold text-2xl">Top Topics</p>
             {isLoading ? (
-              <p>Loading...</p>
+               <div className="flex flex-col justify-start items-center w-full p-10">
+               <p>Loading...</p>
+               <LoadingBar/>
+             </div>
             ) : (
               <>
                 {tblRows.length === 0 ? (

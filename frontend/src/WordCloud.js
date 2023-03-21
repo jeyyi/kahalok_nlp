@@ -5,6 +5,7 @@ import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import LoadingBar from "./components/LodingBar";
 const WordCloud = () => {
   const [imgURL, setImgURL] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -49,7 +50,10 @@ const WordCloud = () => {
           <div className="flex row w-4/5 h-full bg-white">
             <div className="flex h-full w-1/2">
               {isLoading ? (
-                <p>Loading....</p>
+                 <div className="flex flex-col justify-start items-center w-full p-10">
+                 <p>Loading...</p>
+                 <LoadingBar/>
+               </div>
               ) : (
                 <Zoom>
                   <img src={imgURL} alt="Bigram" width={650} />

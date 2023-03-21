@@ -4,6 +4,7 @@ import Neck from "./components/Neck";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import axios from "axios";
+import LoadingBar from "./components/LodingBar";
 import { useState, useEffect } from "react";
 const Bigram = () => {
   const [imgURL, setImgURL] = useState("")
@@ -49,7 +50,12 @@ const Bigram = () => {
           <div className="flex row w-4/5 h-full bg-white">
             <div className="flex h-full w-1/2">
             {
-              isLoading? <p>Loading....</p>
+              isLoading? 
+              <div className="flex flex-col justify-start items-center w-full p-10">
+                <p>Loading...</p>
+                <LoadingBar/>
+              </div>
+              
               :
               <Zoom>
               <img src={imgURL} alt="Bigram" width={650} />
