@@ -48,6 +48,10 @@ const Modal = () => {
                     Most Frequent Word
                   </button>
                   <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500"
+                  onClick = {()=> navigate('../wordcloud', { replace: false })}>
+                    WordCloud
+                  </button>
+                  <button className="w-full bg-white rounded-lg h-12 text-2xl font-medium hover:bg-yellow-500"
                   onClick = {()=> navigate('../sentiment', { replace: false })}>
                     Sentiment Analysis
                   </button>
