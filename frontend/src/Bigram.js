@@ -7,10 +7,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 const Bigram = () => {
   const [imgURL, setImgURL] = useState("")
-  
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     async function fetchData() {
       try {
+        setIsLoading(true)
         const response = await axios.get("http://localhost:8000/bigram", {
           responseType: "blob",
         });
@@ -21,6 +22,8 @@ const Bigram = () => {
         setImgURL(url);
       } catch (error) {
         console.error(error);
+      } finally {
+        setTimeout(()=> setIsLoading(false), 1000); //add a delay of 1 second
       }
     }
     fetchData();
@@ -45,10 +48,13 @@ const Bigram = () => {
         <div className="flex flex-row h-2/3 bg-white rounded-b-xl p-2">
           <div className="flex row w-4/5 h-full bg-white">
             <div className="flex h-full w-1/2">
-              {/* insert bigram image here */}
-            <Zoom>
+            {
+              isLoading? <p>Loading....</p>
+              :
+              <Zoom>
               <img src={imgURL} alt="Bigram" width={650} />
             </Zoom>
+            }
             </div>
             <div className="flex flex-col h-full w-1/2 space-y-8 mt-8">
               <p className= "font-bold text-5xl text-gray-800">
