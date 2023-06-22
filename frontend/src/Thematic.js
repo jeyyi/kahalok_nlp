@@ -11,17 +11,29 @@ const Thematic = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(()=>{
-    setIsLoading(true)
-    axios.get("http://localhost:8000/thematic-analysis")
-      .then(response=>{
-        setData(response.data)
-        console.log("Successful connecting data")
-        console.log(data)
-      })
-      .catch(err=>{
-        console.error(err)
-      })
-      .finally(()=> setTimeout(() => setIsLoading(false), 1000)); // add delay of 1 second
+    // axios.get("http://localhost:8000/thematic-analysis")
+    //   .then(response=>{
+    //     setData(response.data)
+    //     console.log("Successful connecting data")
+    //     console.log(response.data)
+    //   })
+    //   .catch(err=>{
+    //     console.error(err)
+    //   })
+    //   .finally(()=> setTimeout(() => setIsLoading(false), 1000)); // add delay of 1 second
+
+    const getData = async () => {
+      setIsLoading(true)
+      const response = await fetch("http://localhost:8000/thematic-analysis");
+      if (response.ok) {
+        const data = await response.json();
+        setData(data)
+      } else {
+        console.log(response.error)
+      }
+      setIsLoading(false)
+    }
+    getData();
   },[]);
   
 

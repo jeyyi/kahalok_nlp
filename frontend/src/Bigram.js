@@ -13,13 +13,16 @@ const Bigram = () => {
     async function fetchData() {
       try {
         setIsLoading(true)
-        const response = await axios.get("http://localhost:8000/bigram", {
-          responseType: "blob",
-        });
-        const blob = new Blob([response.data], {
-          type: response.headers["content-type"],
-        });
-        const url = URL.createObjectURL(blob);
+        // const response = await axios.get("http://localhost:8000/bigram", {
+        //   responseType: "blob",
+        // });
+        // const blob = new Blob([response.data], {
+        //   type: response.headers["content-type"],
+        // });
+
+        const response = await fetch("http://localhost:8000/bigram")
+        const url = URL.createObjectURL(await response.blob());
+
         setImgURL(url);
       } catch (error) {
         console.error(error);

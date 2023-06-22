@@ -18,7 +18,7 @@ const Home = () => {
           <p className="text-2xl text-blue-900 font-bold">
             Visual Analytic Toolkit
           </p>
-          <button class="bg-blue-900 hover:bg-white hover:text-blue-900 text-white font-bold py-2 px-4 rounded inline-flex items-center h-10">
+          <button className="bg-blue-900 hover:bg-white hover:text-blue-900 text-white font-bold py-2 px-4 rounded inline-flex items-center h-10">
             <span>Back</span>
           </button>
         </div>

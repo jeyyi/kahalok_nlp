@@ -6,7 +6,7 @@ const Modal = () => {
   return (
     <>
       <button
-        class="mx-auto shadow-xl justify-center items-center bg-green-700 hover:bg-white hover:text-green-700 text-white font-bold py-2 px-4 rounded-lg inline-flex h-8 w-48"
+        className="mx-auto shadow-xl justify-center items-center bg-green-700 hover:bg-white hover:text-green-700 text-white font-bold py-2 px-4 rounded-lg inline-flex h-8 w-48"
         onClick={() => setShowModal(true)}
       >
         Choose Feature
@@ -25,7 +25,7 @@ const Modal = () => {
                     <p className="text-white">Sample Description</p>
                   </div>
                   <button
-                    class="bg-yellow-500 hover:bg-white hover:text-yellow-500 text-black font-bold py-2 px-4 rounded inline-flex items-center h-10"
+                    className="bg-yellow-500 hover:bg-white hover:text-yellow-500 text-black font-bold py-2 px-4 rounded inline-flex items-center h-10"
                     onClick={() => setShowModal(false)}
                   >
                     <span>Back</span>

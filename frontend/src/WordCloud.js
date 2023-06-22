@@ -6,6 +6,7 @@ import "react-medium-image-zoom/dist/styles.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import LoadingBar from "./components/LodingBar";
+
 const WordCloud = () => {
   const [imgURL, setImgURL] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -13,13 +14,17 @@ const WordCloud = () => {
     async function fetchData() {
       try {
         setIsLoading(true);
-        const response = await axios.get("http://localhost:8000/wordcloud", {
-          responseType: "blob",
-        });
-        const blob = new Blob([response.data], {
-          type: response.headers["content-type"],
-        });
-        const url = URL.createObjectURL(blob);
+        // const response = await axios.get("http://localhost:8000/wordcloud", {
+        //   responseType: "blob",
+        // });
+        // const blob = new Blob([response.data], {
+        //   type: response.headers["content-type"],
+        // });
+        // const url = URL.createObjectURL(blob);
+
+        const response = await fetch("http://localhost:8000/wordcloud");
+        const url = URL.createObjectURL(await response.blob());
+
         setImgURL(url);
       } catch (error) {
         console.error(error);
