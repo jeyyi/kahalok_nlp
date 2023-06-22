@@ -11,9 +11,14 @@ const Frequent = () => {
   const tblRows = [];
 
   useEffect(() => {
-    axios.get("http://localhost:8000/frequent").then((result) => {
-      setData(result.data);
-    });
+    // axios.get("http://localhost:8000/frequent").then((result) => {
+    //   setData(result.data);
+    // });
+    const getData = async () => {
+      const response = await fetch("http://localhost:8000/frequent");
+      setData(await response.json())
+    }
+    getData();
   }, []);
 
   useEffect(() => {

@@ -24,15 +24,15 @@ import { Data } from "../utils/Data";
     ],
   });
   return (
-    <div class="max-w-full rounded-2xl overflow-hidden shadow-lg h-72 min-h-full bg-white">
-      <div class="flex flex-col px-8 pt-10">
+    <div className="max-w-full rounded-2xl overflow-hidden shadow-lg h-72 min-h-full bg-white">
+      <div className="flex flex-col px-8 pt-10">
         <div className="flex flex-row w-full">
-          <div class="flex-1 font-semibold text-2xl w-1/3 h-full text-gray-500">{title}</div>
+          <div className="flex-1 font-semibold text-2xl w-1/3 h-full text-gray-500">{title}</div>
           <div className="w-2/3"></div>
         </div>
       </div>
-      <div class="px-6 pt-2 max-h-full max-w-full">
-      <p class="flex text-gray-800 text-8xl">{subtitle}</p>
+      <div className="px-6 pt-2 max-h-full max-w-full">
+      <p className="flex text-gray-800 text-8xl">{subtitle}</p>
       {isPie === true ? <PieChart chartData={chartData} /> : ""}
       {isBar === true? <BarChart chartData={chartDataBar}/> : ""}
       </div>
